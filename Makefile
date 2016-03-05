@@ -1,20 +1,21 @@
 ##
 ## Makefile for asm in /home/noboud_n/rendu/asm_minilibc
-## 
+##
 ## Made by Nyrandone Noboud-Inpeng
 ## Login   <noboud_n@epitech.net>
-## 
+##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Sat Mar  5 19:12:19 2016 Nyrandone Noboud-Inpeng
+## Last update Sat Mar  5 20:28:23 2016 guillaume wilmot
 ##
 
-SRC	= main.c
+SRC	= hello.s
 
-OBJ	= $(addprefix $(OBJDIR), $(SRC:.c=.o))
+OBJ	= $(addprefix $(OBJDIR), $(SRC:.s=.o))
 
 RM	= rm -f
 
-CC	= cc -g
+NASM	= nasm
+CC	= gcc
 
 NAME	= libasm.so
 
@@ -24,11 +25,12 @@ INCDIR	= -I includes/
 
 MAKEOBJ	= obj
 
-CFLAGS	= -Wall -Wextra -Werror -ansi -fpic -shared
+SFLAGS	= -f elf64
+CFLAGS	= -W -Wall -Werror
 
-$(OBJDIR)%.o: $(SRCDIR)%.c
+$(OBJDIR)%.o: $(SRCDIR)%.s
 	@mkdir -p $(MAKEOBJ)
-	$(CC) $(CFLAGS) $(INCDIR) -o $@ -c $<
+	$(NASM) $(SFLAGS) -o $@ $<
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
