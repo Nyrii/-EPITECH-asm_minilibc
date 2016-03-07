@@ -27,9 +27,3 @@ which:
 	mov bl, byte [rsi + rcx]	; put str2[i] in rbx's first 8 bits
 	sub rax, rbx			; str1[i] -= str2[i]
 	ret
-
-
-	;; str1 -> rdi
-	;; str2 -> rsi
-	;; n    -> rdx
-	;; i    -> rcx

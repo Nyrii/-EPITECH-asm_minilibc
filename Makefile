@@ -5,13 +5,17 @@
 ## Login   <noboud_n@epitech.net>
 ##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Sun Mar  6 19:47:04 2016 guillaume wilmot
+## Last update Mon Mar  7 14:10:37 2016 guillaume wilmot
 ##
 
-SRC	= strlen.s \
-	  strncmp.s
+SRC	= strlen.s 	\
+	  strncmp.s	\
+	  memset.s	\
+
+CSRC	= main.c	\
 
 OBJ	= $(addprefix $(OBJDIR), $(SRC:.s=.o))
+COBJ	= $(addprefix $(COBJDIR), $(CSRC:.c=.o))
 
 RM	= rm -f
 
@@ -19,31 +23,46 @@ NASM	= nasm
 CC	= gcc
 
 NAME	= libasm.so
+TEST	= test
 
 OBJDIR	= obj/
+COBJDIR	= Cobj/
 SRCDIR	= src/
+CSRCDIR	= Csrc/
 INCDIR	= -I includes/
 
-MAKEOBJ	= obj
+MAKEOBJ		= obj
+MAKECOBJ	= Cobj
 
 SFLAGS	= -f elf64
 CFLAGS	= -W -Wall -Werror -shared -fPIC
+TFLAGS	= -W -Wall -Werror
 
 $(OBJDIR)%.o: $(SRCDIR)%.s
 	@mkdir -p $(MAKEOBJ)
 	$(NASM) $(SFLAGS) -o $@ $<
 
+$(COBJDIR)%.o: $(CSRCDIR)%.c
+	@mkdir -p $(MAKECOBJ)
+	$(CC) $(TFLAGS) -o $@ -c $<
+
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+$(TEST): $(OBJ) $(COBJ)
+	$(CC) $(TFLAGS) $(OBJ) $(COBJ) -o $(TEST)
 
 all:
 	@make --no-print-directory $(NAME)
 
 clean:
 	$(RM) $(OBJ)
+	$(RM) $(COBJ)
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(TEST)
 	$(RM) -R $(OBJDIR)
+	$(RM) -R $(COBJDIR)
 
 re: fclean all
