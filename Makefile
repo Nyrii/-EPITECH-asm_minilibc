@@ -5,10 +5,11 @@
 ## Login   <noboud_n@epitech.net>
 ##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Sun Mar  6 15:37:03 2016 guillaume wilmot
+## Last update Sun Mar  6 19:47:04 2016 guillaume wilmot
 ##
 
-SRC	= strlen.s
+SRC	= strlen.s \
+	  strncmp.s
 
 OBJ	= $(addprefix $(OBJDIR), $(SRC:.s=.o))
 
