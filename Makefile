@@ -5,7 +5,7 @@
 ## Login   <noboud_n@epitech.net>
 ##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Mon Mar  7 14:10:37 2016 guillaume wilmot
+## Last update Mon Mar  7 15:52:57 2016 guillaume wilmot
 ##
 
 SRC	= strlen.s 	\
@@ -47,10 +47,10 @@ $(COBJDIR)%.o: $(CSRCDIR)%.c
 	$(CC) $(TFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)
 
 $(TEST): $(OBJ) $(COBJ)
-	$(CC) $(TFLAGS) $(OBJ) $(COBJ) -o $(TEST)
+	$(CC) $(OBJ) $(COBJ) -o $(TEST) $(TFLAGS)
 
 all:
 	@make --no-print-directory $(NAME)

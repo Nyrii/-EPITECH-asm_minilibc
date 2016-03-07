@@ -1,7 +1,6 @@
 [BITS 64]
 	section .text
-	global my_strncmp
-
+	global my_strncmp:function
 my_strncmp:
 	xor rcx, rcx			; i = 0
 	jmp check
@@ -10,7 +9,6 @@ loop:
 check:
 	mov bl, byte [rdi + rcx]	; put str1[i] in rbx's first 8bits
 	mov al, byte [rsi + rcx]	; put str2[i] in rax's first 8bits
-
 	cmp bl, al			; if (str1[i] == str2[i])
 	jne end
 	cmp rdx, rcx			; if (i < n)
