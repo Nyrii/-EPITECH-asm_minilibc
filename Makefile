@@ -5,7 +5,7 @@
 ## Login   <noboud_n@epitech.net>
 ##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Tue Mar  8 14:35:10 2016 Nyrandone Noboud-Inpeng
+## Last update Tue Mar  8 18:10:33 2016 Nyrandone Noboud-Inpeng
 ##
 
 SRC	= strlen.s 	\
@@ -13,7 +13,8 @@ SRC	= strlen.s 	\
 	  strcmp.s	\
 	  memset.s	\
 	  strchr.s	\
-	  strstr.s
+	  strstr.s	\
+	  rindex.s
 
 CSRC	= main.c	\
 

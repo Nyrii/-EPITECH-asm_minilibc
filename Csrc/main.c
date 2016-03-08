@@ -5,7 +5,7 @@
 ** Login   <noboud_n@epitech.net>
 **
 ** Started on  Sun Mar  6 14:32:53 2016 Nyrandone Noboud-Inpeng
-** Last update Tue Mar  8 17:41:25 2016 Nyrandone Noboud-Inpeng
+** Last update Tue Mar  8 19:45:09 2016 Nyrandone Noboud-Inpeng
 */
 
 #include <stdio.h>
@@ -16,15 +16,45 @@ extern void	*my_memset(void *, int, size_t);
 extern size_t	my_strlen(char *);
 extern int	my_strncmp(char *, char*, int);
 extern int	my_strcmp(char *, char*);
-extern char	*my_strchr(char *, char);
+extern char	*my_strchr(char *, int);
 extern char	*my_strstr(char *, char *);
+extern char	*my_rindex(char *, int);
 
 #define RED "\033[01;31m"
 #define END "\033[m"
 
+void	test_rindex()
+{
+  printf("\n%s___Testing rindex___%s\n\n", RED, END);
+
+  printf("c = %s -- MDRCOUCOUSALUT M\n", rindex("MDRCOUCOUSALUT", 'M'));
+  printf("asm = %s -- MDRCOUCOUSALUT M\n", my_rindex("MDRCOUCOUSALUT", 'M'));
+
+  printf("-\n");
+
+  printf("c = %s -- MDRCOUCOUSALUT C\n", rindex("MDRCOUCOUSALUT", 'C'));
+  printf("asm = %s -- MDRCOUCOUSAUT C\n", my_rindex("MDRCOUCOUSALUT", 'C'));
+
+  printf("-\n");
+
+  printf("c = %s -- MDRCOUCOUSALUT T\n", rindex("MDRCOUCOUSALUT", 'T'));
+  printf("asm = %s -- MDRCOUCOUSALUT T\n", my_rindex("MDRCOUCOUSALUT", 'T'));
+
+  printf("-\n");
+
+  printf("c = POINTEUR NULL -- MDRCOUCOUSALUT X\n");
+  printf("asm = %s -- MDRCOUCOUSAUT X\n", my_rindex("MDRCOUCOUSALUT", 'X')); /* PTR NULL */
+
+  printf("-\n");
+
+  printf("c = POINTEUR NULL -- \"\" C\n");
+  printf("asm = %s -- \"\" C\n", my_rindex("", 'C')); /* PTR NULL */
+}
+
 void	test_strstr()
 {
   printf("\n%s___Testing strstr___%s\n\n", RED, END);
+
   printf("asm = %s -- MDRCOUCOUSALUT UT\n", my_strstr("MDRCOUCOUSALUT", "UT"));
   printf("c = %s -- MDRCOUCOUSALUT UT\n", strstr("MDRCOUCOUSALUT", "UT"));
 
@@ -185,5 +215,6 @@ int	main()
   test_strchr();
   test_memset();
   test_strstr();
+  test_rindex();
   return (0);
 }
