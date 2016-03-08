@@ -5,7 +5,7 @@
 ** Login   <noboud_n@epitech.net>
 **
 ** Started on  Sun Mar  6 14:32:53 2016 Nyrandone Noboud-Inpeng
-** Last update Tue Mar  8 21:56:59 2016 Nyrandone Noboud-Inpeng
+** Last update Tue Mar  8 21:59:33 2016 Nyrandone Noboud-Inpeng
 */
 
 #include <stdio.h>
@@ -33,109 +33,109 @@ void	test_strpbrk()
 {
   printf("\n%s___Testing strpbrk___%s\n\n", RED, END);
 
-  printf("c = %s -- abcde2fghi3jk4l 34\n", strpbrk("abcde2fghi3jk4l", "34"));
   printf("asm = %s -- abcde2fghi3jk4l 34\n", my_strpbrk("abcde2fghi3jk4l", "34"));
+  printf("c = %s -- abcde2fghi3jk4l 34\n", strpbrk("abcde2fghi3jk4l", "34"));
 
   printf("-\n");
 
-  printf("c = %s -- abcde2fghi3jk4l 2\n", strpbrk("abcde2fghi3jk4l", "2"));
   printf("asm = %s -- abcde2fghi3jk4l 2\n", my_strpbrk("abcde2fghi3jk4l", "2"));
+  printf("c = %s -- abcde2fghi3jk4l 2\n", strpbrk("abcde2fghi3jk4l", "2"));
 
   printf("-\n");
 
-  printf("c = %s -- abcdee2fghi3jk4l e\n", strpbrk("abcdee2fghi3jk4l", "e"));
   printf("asm = %s -- abcdee2fghi3jk4l e\n", my_strpbrk("abcdee2fghi3jk4l", "e"));
+  printf("c = %s -- abcdee2fghi3jk4l e\n", strpbrk("abcdee2fghi3jk4l", "e"));
 
   printf("-\n");
 
-  printf("c = %s -- abcdee2fghi3jk4l l\n", strpbrk("abcdee2fghi3jk4l", "l"));
   printf("asm = %s -- abcdee2fghi3jk4l l\n", my_strpbrk("abcdee2fghi3jk4l", "l"));
+  printf("c = %s -- abcdee2fghi3jk4l l\n", strpbrk("abcdee2fghi3jk4l", "l"));
 
   printf("-\n");
 
-  printf("c = %s -- abcdee2fghi3jk4l 2ci\n", strpbrk("abcdee2fghi3jk4l", "2ci"));
   printf("asm = %s -- abcdee2fghi3jk4l 2ci\n", my_strpbrk("abcdee2fghi3jk4l", "2ci"));
+  printf("c = %s -- abcdee2fghi3jk4l 2ci\n", strpbrk("abcdee2fghi3jk4l", "2ci"));
 
   printf("-\n");
 
-  printf("c = %s -- abcdee2fghi3jk4l 43\n", strpbrk("abcdee2fghi3jk4l", "43"));
   printf("asm = %s -- abcdee2fghi3jk4l 43\n", my_strpbrk("abcdee2fghi3jk4l", "43"));
+  printf("c = %s -- abcdee2fghi3jk4l 43\n", strpbrk("abcdee2fghi3jk4l", "43"));
 
   printf("-\n");
 
-  printf("c = POINTEUR NULL\n");
   printf("asm = %s -- abcde2fghi3jk4l \"\"\n", my_strpbrk("abcde2fghi3jk4l", ""));
+  printf("c = POINTEUR NULL\n");
 
   printf("-\n");
 
-  printf("c = POINTEUR NULL\n");
   printf("asm = %s -- \"\"  2\n", my_strpbrk("", "2"));
+  printf("c = POINTEUR NULL\n");
 
   printf("-\n");
 
-  printf("c = POINTEUR NULL\n");
   printf("asm = %s -- abcde2fghi3jk4l \"\"\n", my_strpbrk("", ""));
+  printf("c = POINTEUR NULL\n");
 }
 
 void	test_strcspn()
 {
   printf("\n%s___Testing strcspn___%s\n\n", RED, END);
 
-  printf("c = %zu -- salut at\n", strcspn("salut", "at"));
   printf("asm = %zu -- salut at\n", my_strcspn("salut", "at"));
+  printf("c = %zu -- salut at\n", strcspn("salut", "at"));
 
   printf("-\n");
 
-  printf("c = %zu -- salut t\n", strcspn("salut", "t"));
   printf("asm = %zu -- salut t\n", my_strcspn("salut", "t"));
+  printf("c = %zu -- salut t\n", strcspn("salut", "t"));
 
   printf("-\n");
 
-  printf("c = %zu -- salut \"\"\n", strcspn("salut", ""));
   printf("asm = %zu -- salut \"\"\n", my_strcspn("salut", ""));
+  printf("c = %zu -- salut \"\"\n", strcspn("salut", ""));
 
   printf("-\n");
 
-  printf("c = %zu -- salut s\n", strcspn("salut", "s"));
   printf("asm = %zu -- salut s\n", my_strcspn("salut", "s"));
+  printf("c = %zu -- salut s\n", strcspn("salut", "s"));
 
   printf("-\n");
 
-  printf("c = %zu -- \"\" s\n", strcspn("", "s"));
   printf("asm = %zu -- \"\" s\n", my_strcspn("", "s"));
+  printf("c = %zu -- \"\" s\n", strcspn("", "s"));
 
   printf("-\n");
 
-  printf("c = %zu -- \"\" \"\"\n", strcspn("", ""));
   printf("asm = %zu -- \"\" \"\"\n", my_strcspn("", ""));
+  printf("c = %zu -- \"\" \"\"\n", strcspn("", ""));
 }
 
 void	test_rindex()
 {
   printf("\n%s___Testing rindex___%s\n\n", RED, END);
 
-  printf("c = %s -- MDRCOUCOUSALUT M\n", rindex("MDRCOUCOUSALUT", 'M'));
   printf("asm = %s -- MDRCOUCOUSALUT M\n", my_rindex("MDRCOUCOUSALUT", 'M'));
+  printf("c = %s -- MDRCOUCOUSALUT M\n", rindex("MDRCOUCOUSALUT", 'M'));
 
   printf("-\n");
 
-  printf("c = %s -- MDRCOUCOUSALUT C\n", rindex("MDRCOUCOUSALUT", 'C'));
   printf("asm = %s -- MDRCOUCOUSAUT C\n", my_rindex("MDRCOUCOUSALUT", 'C'));
+  printf("c = %s -- MDRCOUCOUSALUT C\n", rindex("MDRCOUCOUSALUT", 'C'));
 
   printf("-\n");
 
-  printf("c = %s -- MDRCOUCOUSALUT T\n", rindex("MDRCOUCOUSALUT", 'T'));
   printf("asm = %s -- MDRCOUCOUSALUT T\n", my_rindex("MDRCOUCOUSALUT", 'T'));
+  printf("c = %s -- MDRCOUCOUSALUT T\n", rindex("MDRCOUCOUSALUT", 'T'));
 
   printf("-\n");
 
-  printf("c = POINTEUR NULL -- MDRCOUCOUSALUT X\n");
   printf("asm = %s -- MDRCOUCOUSAUT X\n", my_rindex("MDRCOUCOUSALUT", 'X')); /* PTR NULL */
+  printf("c = POINTEUR NULL -- MDRCOUCOUSALUT X\n");
 
   printf("-\n");
 
-  printf("c = POINTEUR NULL -- \"\" C\n");
   printf("asm = %s -- \"\" C\n", my_rindex("", 'C')); /* PTR NULL */
+  printf("c = POINTEUR NULL -- \"\" C\n");
 }
 
 void	test_strstr()
