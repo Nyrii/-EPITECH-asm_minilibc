@@ -1,7 +1,7 @@
 [BITS 64]
 	section .text
-	global my_strlen:function
-my_strlen:
+	global strlen:function
+strlen:
 	mov rbx, rdi		; move char * in register
 	xor rax, rax		; reinit iterator
 	jmp check

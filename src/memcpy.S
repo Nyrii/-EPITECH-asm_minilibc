@@ -1,7 +1,7 @@
 [BITS 64]
 	section .text
-	global my_memcpy:function
-my_memcpy:
+	global memcpy:function
+memcpy:
 	xor rcx, rcx			; i = 0
 	jmp check
 loop:

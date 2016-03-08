@@ -1,6 +1,6 @@
 [BITS 64]
 	section .text
-	global my_strcasecmp:function
+	global strcasecmp:function
 	global casecmp
 casecmp:
 	cmp dil, 65

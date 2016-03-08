@@ -4,8 +4,8 @@
 ## Made by guillaume wilmot
 ## Login   <wilmot_g@epitech.net>
 ##
-## Started on  Tue Mar  8 21:45:53 2016 guillaume wilmot
-## Last update Tue Mar  8 21:45:58 2016 guillaume wilmot
+## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
+## Last update Tue Mar  8 21:55:07 2016 Nyrandone Noboud-Inpeng
 ##
 
 SRC	= strlen.S 	\
@@ -18,7 +18,8 @@ SRC	= strlen.S 	\
 	  strchr.S	\
 	  strstr.S	\
 	  rindex.S	\
-	  strcspn.S
+	  strcspn.S	\
+	  strpbrk.S
 
 CSRC	= main.c
 

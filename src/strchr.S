@@ -1,10 +1,9 @@
 [BITS 64]
-	global my_strchr:function
+	global strchr:function
 	section .text
 
 end:
 	mov rax, rdi	 	; give to the return value the address of the char (rdi)
-	leave			; re-set the stack pointer to its initial ptr
 	ret
 
 loop:
@@ -20,10 +19,6 @@ loop:
 
 	jmp loop		; loop again
 
-my_strchr:
-	push rbp		; push the register
-	mov rbp, rsp		; put the stack pointer to rbp
-
+strchr:
 	xor rax, rax		; return value = 0
-
 	jmp loop		; loop

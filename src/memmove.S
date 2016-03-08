@@ -2,8 +2,8 @@
 	section .text
 	extern malloc
 	extern free
-	global my_memmove:function
-my_memmove:
+	global memmove:function
+memmove:
 	push rbp
 	mov rbp, rsp
 

@@ -1,10 +1,9 @@
 [BITS 64]
-	global my_rindex:function
+	global rindex:function
 	section .text
 
 end:
 	mov rax, rdx		; return value = saved value
-	leave
 	ret
 
 store_addr:
@@ -28,10 +27,7 @@ loop:
 	inc rdi			; increment the address of the first argument
 	jmp loop
 
-my_rindex:
-	push rbp
-	mov rbp, rsp
-
+rindex:
 	xor bl, bl
 	xor cl, cl
 	xor rax, rax

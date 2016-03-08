@@ -1,7 +1,7 @@
 [BITS 64]
 	section .text
-	global my_memset:function
-my_memset:
+	global memset:function
+memset:
 	xor rcx, rcx			; i = 0
 	jmp check
 loop:

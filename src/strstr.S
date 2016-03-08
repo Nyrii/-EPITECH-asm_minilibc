@@ -1,10 +1,9 @@
 [BITS 64]
-	global my_strstr:function
+	global strstr:function
 	section .text
 
 att_str:
 	mov rax, rdx		; set the return value to the adress of the first occurence
-	leave
 	ret
 
 check_al:
@@ -13,14 +12,12 @@ check_al:
 	cmp r9, 0		; check if r9 == 0
 	jnz att_str		; if false, then jmp
 	mov rax, rdi		; else, set the return value to the address of the first arg's first char
-	leave
 	ret
 
 end:
 	cmp bl, 0		; check if the second argument's char == '\0'
 	jz check_al		; if true, then jump
 	mov rax, 0		; else, return value = NULL
-	leave			; set the stack pointer to its initial value (rsp)
 	ret			; end of function
 
 wrong:
@@ -55,10 +52,7 @@ loop:
 	je inc_second		; jmp
 	jne wrong		; else jmp
 
-my_strstr:
-	push rbp		; push the register
-	mov rbp, rsp		; rbp is the new stack pointer
-
+strstr:
 	mov r8, rsi		; store the second argument in r8
 
 	xor rdx, rdx

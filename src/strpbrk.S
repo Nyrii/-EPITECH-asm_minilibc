@@ -1,13 +1,20 @@
 [BITS 64]
-	global strcspn:function
+	global strpbrk:function
 	section .text
 
+null:
+	mov rax, 0
+	ret
+
 end:
-	mov rax, rcx		; initialize rax with the value of rcx
+	cmp byte[rsi], 0	; if the char's address of rsi == '\0'
+	jz null			; leave with ptr = NULL
+	cmp rcx, 0		; else if counter == 0
+	jz null			; leave with ptr
+	mov rax, rdi		; else, initialize rax with the address of rdi
 	ret
 
 count:
-	inc rcx			; increment rcx (for the return value)
 	inc rdi			; increment the address of the first argument
 	jmp first_loop		; jump on the first loop
 
@@ -28,12 +35,14 @@ check_count:
 
 first_loop:
 	mov dl, byte[rdi]	; initialize the 8bit register with the converted value of rdi (64 bits)
+	xor bl, bl
 
 	cmp dl, 0		; if dl == '\0'
 	jz end			; then end
+	inc rcx
 	jmp check_count		; else loop with the second argument
 
-strcspn:
+strpbrk:
 	xor rcx, rcx
 	xor r9, r9
 	xor bl, bl

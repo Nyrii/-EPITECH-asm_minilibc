@@ -1,8 +1,8 @@
 [BITS 64]
 	section .text
-	global my_strncmp:function
+	global strncmp:function
 
-my_strncmp:
+strncmp:
 	xor rcx, rcx			; i = 0
 	jmp check
 loop:

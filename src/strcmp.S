@@ -1,16 +1,15 @@
 [BITS 64]
-	global my_strcmp:function
+	global strcmp:function
 	section .text
 
 end:
 	mov al, bl		; store bl in al
 	sub al, cl		; al = al - cl (difference between two chars)
 	movsx rax, al		; move the result of al in rax (increase the size of al to store it in the register
-	leave
 	ret
 
 
-	
+
 loop:
 	mov bl, byte[rdi]		; store first char of first argument in bl
 	mov cl, byte[rsi]		; store first char of second argument in bl
@@ -29,10 +28,7 @@ loop:
 	jmp loop		; loop again
 
 
-my_strcmp:
-	push rbp
-	mov rbp, rsp
-
+strcmp:
 	xor rax, rax		; return_value = 0
 	xor rbx, rbx		; initialize first argument
 	xor rcx, rcx		; initialize second argument
