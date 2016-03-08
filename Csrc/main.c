@@ -5,7 +5,7 @@
 ** Login   <noboud_n@epitech.net>
 **
 ** Started on  Sun Mar  6 14:32:53 2016 Nyrandone Noboud-Inpeng
-** Last update Tue Mar  8 18:13:53 2016 guillaume wilmot
+** Last update Tue Mar  8 19:49:00 2016 guillaume wilmot
 */
 
 #include <stdio.h>
@@ -20,9 +20,47 @@ extern size_t	my_strlen(char *);
 extern int	my_strncmp(char *, char*, int);
 extern int	my_strcmp(char *, char*);
 extern char	*my_strchr(char *, char);
+extern char	*my_strstr(char *, char *);
 
 #define RED "\033[01;31m"
 #define END "\033[m"
+
+void	test_strstr()
+{
+  printf("\n%s___Testing strstr___%s\n\n", RED, END);
+  printf("asm = %s -- MDRCOUCOUSALUT UT\n", my_strstr("MDRCOUCOUSALUT", "UT"));
+  printf("c = %s -- MDRCOUCOUSALUT UT\n", strstr("MDRCOUCOUSALUT", "UT"));
+
+  printf("-\n");
+
+  printf("asm = %s -- MDRCOUCOUSALUT \"\"\n", my_strstr("MDRCOUCOUSALUT", ""));
+  printf("c = %s -- MDRCOUCOUSALUT \"\"\n", strstr("MDRCOUCOUSALUT", ""));
+
+  printf("-\n");
+
+  printf("asm = %s -- MDRCOUCOUSALUT OU\n", my_strstr("MDRCOUCOUSALUT", "OU"));
+  printf("c = %s -- MDRCOUCOUSALUT OU\n", strstr("MDRCOUCOUSALUT", "OU"));
+
+  printf("-\n");
+
+  printf("asm = %s -- MDRCOUCOUSALUT MDR\n", my_strstr("MDRCOUCOUSALUT", "MDR"));
+  printf("c = %s -- MDRCOUCOUSALUT MDR\n", strstr("MDRCOUCOUSALUT", "MDR"));
+
+  printf("-\n");
+
+  printf("asm = %s -- MDRCOUCOUSALUT D\n", my_strstr("MDRCOUCOUSALUT", "D"));
+  printf("c = %s -- MDRCOUCOUSALUT D\n", strstr("MDRCOUCOUSALUT", "D"));
+
+  printf("-\n");
+
+  printf("asm = %s -- \"\" X\n", my_strstr("", "X")); /* Si ça ne compile pas (erreur de printf sur un ptr null), c'est NORMAL ! Dans le cas contraire, le printf doit print "(null)"*/
+  printf("c = POINTEUR NULL -- \"\" X\n");
+
+  printf("-\n");
+
+  printf("asm = %s -- MDRCOUCOUSALUT X\n", my_strstr("MDRCOUCOUSALUT", "X")); /* Si ça ne compile pas (erreur de printf sur un ptr null), c'est NORMAL ! Dans le cas contraire, le printf doit print "(null)"*/
+  printf("c = POINTEUR NULL -- MDRCOUCOUSALUT X\n");
+}
 
 void	test_strchr()
 {
@@ -201,5 +239,6 @@ int	main()
   test_memset();
   test_memcpy();
   test_memmove();
+  test_strstr();
   return (0);
 }
