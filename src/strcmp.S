@@ -1,5 +1,5 @@
 [BITS 64]
-	global my_strcmp
+	global my_strcmp:function
 	section .text
 
 end:

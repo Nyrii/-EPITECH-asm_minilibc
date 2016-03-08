@@ -1,6 +1,7 @@
 [BITS 64]
 	section .text
 	global my_strncmp:function
+
 my_strncmp:
 	xor rcx, rcx			; i = 0
 	jmp check

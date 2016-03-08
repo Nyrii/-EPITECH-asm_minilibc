@@ -1,26 +1,28 @@
 ##
-## Makefile for asm in /home/noboud_n/rendu/asm_minilibc
+## Makefile for  in /home/wilmot_g/Rendu/asm_minilibc
 ##
-## Made by Nyrandone Noboud-Inpeng
-## Login   <noboud_n@epitech.net>
+## Made by guillaume wilmot
+## Login   <wilmot_g@epitech.net>
 ##
-## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Tue Mar  8 21:22:17 2016 guillaume wilmot
+## Started on  Tue Mar  8 21:45:53 2016 guillaume wilmot
+## Last update Tue Mar  8 21:45:58 2016 guillaume wilmot
 ##
 
-SRC	= strlen.s 	\
-	  strncmp.s	\
-	  strcmp.s	\
-	  strcasecmp.s	\
-	  memset.s	\
-	  memcpy.s	\
-	  memmove.s	\
-	  strchr.s	\
-	  strstr.s
+SRC	= strlen.S 	\
+	  strncmp.S	\
+	  strcmp.S	\
+	  strcasecmp.S	\
+	  memset.S	\
+	  memcpy.S	\
+	  memmove.S	\
+	  strchr.S	\
+	  strstr.S	\
+	  rindex.S	\
+	  strcspn.S
 
-CSRC	= main.c	\
+CSRC	= main.c
 
-OBJ	= $(addprefix $(OBJDIR), $(SRC:.s=.o))
+OBJ	= $(addprefix $(OBJDIR), $(SRC:.S=.o))
 COBJ	= $(addprefix $(COBJDIR), $(CSRC:.c=.o))
 
 RM	= rm -f
@@ -44,7 +46,7 @@ SFLAGS	= -f elf64
 CFLAGS	= -W -Wall -Werror -shared -fPIC
 TFLAGS	= -W -Wall -Werror
 
-$(OBJDIR)%.o: $(SRCDIR)%.s
+$(OBJDIR)%.o: $(SRCDIR)%.S
 	@mkdir -p $(MAKEOBJ)
 	$(NASM) $(SFLAGS) -o $@ $<
 
