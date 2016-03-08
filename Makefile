@@ -1,16 +1,17 @@
 ##
-## Makefile for asm in /home/noboud_n/rendu/asm_minilibc
+## Makefile for  in /home/wilmot_g/Rendu/asm_minilibc
 ##
-## Made by Nyrandone Noboud-Inpeng
-## Login   <noboud_n@epitech.net>
+## Made by guillaume wilmot
+## Login   <wilmot_g@epitech.net>
 ##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Tue Mar  8 21:35:52 2016 Nyrandone Noboud-Inpeng
+## Last update Tue Mar  8 21:55:07 2016 Nyrandone Noboud-Inpeng
 ##
 
 SRC	= strlen.S 	\
 	  strncmp.S	\
 	  strcmp.S	\
+	  strcasecmp.S	\
 	  memset.S	\
 	  memcpy.S	\
 	  memmove.S	\

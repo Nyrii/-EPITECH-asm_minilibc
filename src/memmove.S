@@ -1,6 +1,7 @@
 [BITS 64]
 	section .text
 	extern malloc
+	extern free
 	global my_memmove:function
 my_memmove:
 	push rbp
@@ -11,8 +12,10 @@ my_memmove:
 	push rdx			; save n
 
 	mov rdi, rdx			; load n for malloc
-	call malloc wrt ..plt		; malloc(n * sizeof(char))
+	call malloc wrt ..plt		; tmp = malloc(n * sizeof(char))
 	mov r11, rax			; save malloc return
+	cmp r11, 0
+	je error
 
 	pop rdx				; restore n
 	pop rsi				; restore ptr2
@@ -38,5 +41,12 @@ check2:
 	jg loop2
 end:
 	mov rax, rdi			; return (ptr)
+	push rax
+	mov rdi, r11
+	call free wrt ..plt		; free(tmp)
+	pop rax
 	leave
+	ret
+error:
+	xor rax, rax
 	ret
