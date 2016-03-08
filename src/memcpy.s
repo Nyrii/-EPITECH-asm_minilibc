@@ -1,11 +1,12 @@
 [BITS 64]
 	section .text
-	global my_memset:function
-my_memset:
+	global my_memcpy:function
+my_memcpy:
 	xor rcx, rcx			; i = 0
 	jmp check
 loop:
-	mov byte [rdi + rcx], sil 	; ((char *)ptr)[i] = c
+	mov al, byte [rsi + rcx]
+	mov byte [rdi + rcx], al 	; ((char *)ptr)[i] = ((char *)ptr2)[i]
 	inc rcx				; i++
 check:
 	cmp rdx, rcx			; if (i < n)
