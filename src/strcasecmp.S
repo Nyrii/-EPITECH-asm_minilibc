@@ -3,11 +3,11 @@
 	global my_strcasecmp:function
 	global casecmp
 casecmp:
-	cmp dil, 97
+	cmp dil, 65
 	jl return
-	cmp dil, 122
+	cmp dil, 90
 	jg return
-	sub dil, 32
+	add dil, 32
 return:
 	ret
 
@@ -39,6 +39,12 @@ which:
 	xor rax, rax			; clean bits in rax
 	xor rbx, rbx			; clean bits in rbx
 	mov al, byte [rdx + rcx]	; put str1[i] in rax's first 8 bits
+	mov dil, al
+	call casecmp			; if (str1[i] >= 'a' && str1[i] <= 'z');
+	mov al, dil
 	mov bl, byte [rsi + rcx]	; put str2[i] in rbx's first 8 bits
+	mov dil, bl
+	call casecmp			; if (str2[i] >= 'a' && str2[i] <= 'z');
+	mov bl, dil
 	sub rax, rbx			; str1[i] -= str2[i]
 	ret

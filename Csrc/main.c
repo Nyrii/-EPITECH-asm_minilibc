@@ -5,7 +5,7 @@
 ** Login   <noboud_n@epitech.net>
 **
 ** Started on  Sun Mar  6 14:32:53 2016 Nyrandone Noboud-Inpeng
-** Last update Tue Mar  8 21:46:46 2016 guillaume wilmot
+** Last update Tue Mar  8 22:08:42 2016 guillaume wilmot
 */
 
 #include <stdio.h>
@@ -92,39 +92,43 @@ void	test_rindex()
 void	test_strstr()
 {
   printf("\n%s___Testing strstr___%s\n\n", RED, END);
+  printf("asm = %s -- abcdefghijkl \"\"\n", my_strstr("abcdefghijkl", ""));
+  printf("c   = %s -- abcdefghijkl \"\"\n", strstr("abcdefghijkl", ""));
+
+  printf("-\n");
 
   printf("asm = %s -- MDRCOUCOUSALUT UT\n", my_strstr("MDRCOUCOUSALUT", "UT"));
-  printf("c = %s -- MDRCOUCOUSALUT UT\n", strstr("MDRCOUCOUSALUT", "UT"));
+  printf("c   = %s -- MDRCOUCOUSALUT UT\n", strstr("MDRCOUCOUSALUT", "UT"));
 
   printf("-\n");
 
   printf("asm = %s -- MDRCOUCOUSALUT \"\"\n", my_strstr("MDRCOUCOUSALUT", ""));
-  printf("c = %s -- MDRCOUCOUSALUT \"\"\n", strstr("MDRCOUCOUSALUT", ""));
+  printf("c   = %s -- MDRCOUCOUSALUT \"\"\n", strstr("MDRCOUCOUSALUT", ""));
 
   printf("-\n");
 
   printf("asm = %s -- MDRCOUCOUSALUT OU\n", my_strstr("MDRCOUCOUSALUT", "OU"));
-  printf("c = %s -- MDRCOUCOUSALUT OU\n", strstr("MDRCOUCOUSALUT", "OU"));
+  printf("c   = %s -- MDRCOUCOUSALUT OU\n", strstr("MDRCOUCOUSALUT", "OU"));
 
   printf("-\n");
 
   printf("asm = %s -- MDRCOUCOUSALUT MDR\n", my_strstr("MDRCOUCOUSALUT", "MDR"));
-  printf("c = %s -- MDRCOUCOUSALUT MDR\n", strstr("MDRCOUCOUSALUT", "MDR"));
+  printf("c   = %s -- MDRCOUCOUSALUT MDR\n", strstr("MDRCOUCOUSALUT", "MDR"));
 
   printf("-\n");
 
   printf("asm = %s -- MDRCOUCOUSALUT D\n", my_strstr("MDRCOUCOUSALUT", "D"));
-  printf("c = %s -- MDRCOUCOUSALUT D\n", strstr("MDRCOUCOUSALUT", "D"));
+  printf("c   = %s -- MDRCOUCOUSALUT D\n", strstr("MDRCOUCOUSALUT", "D"));
 
   printf("-\n");
 
   printf("asm = %s -- \"\" X\n", my_strstr("", "X")); /* Si ça ne compile pas (erreur de printf sur un ptr null), c'est NORMAL ! Dans le cas contraire, le printf doit print "(null)"*/
-  printf("c = POINTEUR NULL -- \"\" X\n");
+  printf("c   = POINTEUR NULL -- \"\" X\n");
 
   printf("-\n");
 
   printf("asm = %s -- MDRCOUCOUSALUT X\n", my_strstr("MDRCOUCOUSALUT", "X")); /* Si ça ne compile pas (erreur de printf sur un ptr null), c'est NORMAL ! Dans le cas contraire, le printf doit print "(null)"*/
-  printf("c = POINTEUR NULL -- MDRCOUCOUSALUT X\n");
+  printf("c   = POINTEUR NULL -- MDRCOUCOUSALUT X\n");
 }
 
 void	test_strchr()
@@ -162,6 +166,13 @@ void	test_strlen()
 void	test_strcasecmp()
 {
   printf("\n%s___Testing strcasecmp___%s\n\n", RED, END);
+
+  printf("asm %d -- \"\" TOTO\n", my_strcasecmp("TOTO", ""));
+  printf("c   %d -- \"\" TOTO\n", strcasecmp("TOTO", ""));
+  puts("-");
+  printf("asm %d -- \"\" TOTO\n", my_strcasecmp("", "TOTO"));
+  printf("c   %d -- \"\" TOTO\n", strcasecmp("", "TOTO"));
+  puts("-");
   printf("asm %d -- CATR PRET\n", my_strcasecmp("CATR", "PRET"));
   printf("c   %d -- CATR PRET\n", strcasecmp("CATR", "PRET"));
   puts("-");
@@ -291,14 +302,14 @@ void	test_memcpy()
   str1 = strdup("L'asm mdr");
   str4 = strdup("Test                    mdr");
   str3 = strdup("L'asm mdr");
-  str2 = memcpy(str2, str1, 9);
+  str2 = my_memcpy(str2, str1, 9);
   str4 = memcpy(str4, str3, 9);
   printf("asm : %s -- str2, str1, 9\n", str2);
   printf("c   : %s -- str4, str3, 9\n", str4);
   str2 = strdup("TestDuMemCpyMdr");
   str4 = strdup("TestDuMemCpyMdr");
-  str2 = memcpy(str2, &str2[4], 8);
-  str4 = memcpy(str4, &str2[4], 8);
+  str2 = my_memcpy(str2, &str2[9], 8);
+  str4 = memcpy(str4, &str2[9], 8);
   puts("-");
   printf("asm : %s -- str2, &str2[4], 8\n", str2);
   printf("c   : %s -- str2, &str2[4], 8\n", str4);

@@ -13,8 +13,8 @@ my_memmove:
 
 	mov rdi, rdx			; load n for malloc
 	call malloc wrt ..plt		; tmp = malloc(n * sizeof(char))
-	mov r11, rax			; save malloc return
-	cmp r11, 0
+	mov r11, rax			; save tmp
+	cmp r11, 0			; if (!tmp)
 	je error
 
 	pop rdx				; restore n
@@ -41,12 +41,13 @@ check2:
 	jg loop2
 end:
 	mov rax, rdi			; return (ptr)
-	push rax
-	mov rdi, r11
+	push rax			; save ptr
+	mov rdi, r11			; prepare free
 	call free wrt ..plt		; free(tmp)
-	pop rax
+	pop rax				; restore ptr
 	leave
 	ret
 error:
-	xor rax, rax
+	xor rax, rax			; return NULL
+	leave
 	ret
