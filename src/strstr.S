@@ -1,5 +1,5 @@
 [BITS 64]
-	global my_strstr
+	global my_strstr:function
 	section .text
 
 att_str:

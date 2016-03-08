@@ -5,22 +5,23 @@
 ## Login   <noboud_n@epitech.net>
 ##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Tue Mar  8 20:08:15 2016 Nyrandone Noboud-Inpeng
+## Last update Tue Mar  8 21:22:44 2016 Nyrandone Noboud-Inpeng
 ##
 
-SRC	= strlen.s 	\
-	  strncmp.s	\
-	  strcmp.s	\
-	  memset.s	\
-	  memcpy.s	\
-	  memmove.s	\
-	  strchr.s	\
-	  strstr.s	\
-	  rindex.s
+SRC	= strlen.S 	\
+	  strncmp.S	\
+	  strcmp.S	\
+	  memset.S	\
+	  memcpy.S	\
+	  memmove.S	\
+	  strchr.S	\
+	  strstr.S	\
+	  rindex.S	\
+	  strcspn.S
 
 CSRC	= main.c
 
-OBJ	= $(addprefix $(OBJDIR), $(SRC:.s=.o))
+OBJ	= $(addprefix $(OBJDIR), $(SRC:.S=.o))
 COBJ	= $(addprefix $(COBJDIR), $(CSRC:.c=.o))
 
 RM	= rm -f
@@ -44,7 +45,7 @@ SFLAGS	= -f elf64
 CFLAGS	= -W -Wall -Werror -shared -fPIC
 TFLAGS	= -W -Wall -Werror
 
-$(OBJDIR)%.o: $(SRCDIR)%.s
+$(OBJDIR)%.o: $(SRCDIR)%.S
 	@mkdir -p $(MAKEOBJ)
 	$(NASM) $(SFLAGS) -o $@ $<
 

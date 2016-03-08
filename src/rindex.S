@@ -1,5 +1,5 @@
 [BITS 64]
-	global my_rindex
+	global my_rindex:function
 	section .text
 
 end:

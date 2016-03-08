@@ -5,7 +5,7 @@
 ** Login   <noboud_n@epitech.net>
 **
 ** Started on  Sun Mar  6 14:32:53 2016 Nyrandone Noboud-Inpeng
-** Last update Tue Mar  8 20:08:31 2016 Nyrandone Noboud-Inpeng
+** Last update Tue Mar  8 21:26:23 2016 Nyrandone Noboud-Inpeng
 */
 
 #include <stdio.h>
@@ -22,9 +22,43 @@ extern int	my_strcmp(char *, char*);
 extern char	*my_strchr(char *, int);
 extern char	*my_strstr(char *, char *);
 extern char	*my_rindex(char *, int);
+extern size_t	my_strcspn(char *, char *);
 
 #define RED "\033[01;31m"
 #define END "\033[m"
+
+void	test_strcspn()
+{
+  printf("\n%s___Testing strcspn___%s\n\n", RED, END);
+
+  printf("c = %zu -- salut at\n", strcspn("salut", "at"));
+  printf("asm = %zu -- salut at\n", my_strcspn("salut", "at"));
+
+  printf("-\n");
+
+  printf("c = %zu -- salut t\n", strcspn("salut", "t"));
+  printf("asm = %zu -- salut t\n", my_strcspn("salut", "t"));
+
+  printf("-\n");
+
+  printf("c = %zu -- salut \"\"\n", strcspn("salut", ""));
+  printf("asm = %zu -- salut \"\"\n", my_strcspn("salut", ""));
+
+  printf("-\n");
+
+  printf("c = %zu -- salut s\n", strcspn("salut", "s"));
+  printf("asm = %zu -- salut s\n", my_strcspn("salut", "s"));
+
+  printf("-\n");
+
+  printf("c = %zu -- \"\" s\n", strcspn("", "s"));
+  printf("asm = %zu -- \"\" s\n", my_strcspn("", "s"));
+
+  printf("-\n");
+
+  printf("c = %zu -- \"\" \"\"\n", strcspn("", ""));
+  printf("asm = %zu -- \"\" \"\"\n", my_strcspn("", ""));
+}
 
 void	test_rindex()
 {
@@ -271,5 +305,6 @@ int	main()
   test_memmove();
   test_strstr();
   test_rindex();
+  test_strcspn();
   return (0);
 }

@@ -5,13 +5,13 @@
 ** Login   <noboud_n@epitech.net>
 ** 
 ** Started on  Tue Mar  8 18:13:54 2016 Nyrandone Noboud-Inpeng
-** Last update Tue Mar  8 19:44:40 2016 Nyrandone Noboud-Inpeng
+** Last update Tue Mar  8 21:23:43 2016 Nyrandone Noboud-Inpeng
 */
 
 #include <stdio.h>
 #include <string.h>
 
-char	*my_rindex(char *, int);
+size_t	my_strcspn(char *, char *);
 
 int	main()
 {

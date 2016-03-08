@@ -1,5 +1,5 @@
 [BITS 64]
-	global my_strchr
+	global my_strchr:function
 	section .text
 
 end:
