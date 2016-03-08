@@ -5,14 +5,17 @@
 ** Login   <noboud_n@epitech.net>
 **
 ** Started on  Sun Mar  6 14:32:53 2016 Nyrandone Noboud-Inpeng
-** Last update Tue Mar  8 19:45:09 2016 Nyrandone Noboud-Inpeng
+** Last update Tue Mar  8 20:08:31 2016 Nyrandone Noboud-Inpeng
 */
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdlib.h>
 
 extern void	*my_memset(void *, int, size_t);
+extern void	*my_memmove(void *, void *, size_t);
+extern void	*my_memcpy(void *, void *, size_t);
 extern size_t	my_strlen(char *);
 extern int	my_strncmp(char *, char*, int);
 extern int	my_strcmp(char *, char*);
@@ -207,6 +210,56 @@ void	test_memset()
   puts(" -- str2 -12 3");
 }
 
+void	test_memcpy()
+{
+  char	*str1;
+  char	*str2;
+  char	*str3;
+  char	*str4;
+
+  printf("\n%s___Testing memcpy___%s\n\n", RED, END);
+  str2 = strdup("Test                    mdr");
+  str1 = strdup("L'asm mdr");
+  str4 = strdup("Test                    mdr");
+  str3 = strdup("L'asm mdr");
+  str2 = memcpy(str2, str1, 9);
+  str4 = memcpy(str4, str3, 9);
+  printf("asm : %s -- str2, str1, 9\n", str2);
+  printf("c   : %s -- str4, str3, 9\n", str4);
+  str2 = strdup("TestDuMemCpyMdr");
+  str4 = strdup("TestDuMemCpyMdr");
+  str2 = memcpy(str2, &str2[4], 8);
+  str4 = memcpy(str4, &str2[4], 8);
+  puts("-");
+  printf("asm : %s -- str2, &str2[4], 8\n", str2);
+  printf("c   : %s -- str2, &str2[4], 8\n", str4);
+}
+
+void	test_memmove()
+{
+  char	*str1;
+  char	*str2;
+  char	*str3;
+  char	*str4;
+
+  printf("\n%s___Testing memmove___%s\n\n", RED, END);
+  str2 = strdup("Test                    mdr");
+  str1 = strdup("L'asm mdr");
+  str4 = strdup("Test                    mdr");
+  str3 = strdup("L'asm mdr");
+  str2 = my_memmove(str2, str1, 9);
+  str4 = memmove(str4, str3, 9);
+  printf("asm : %s -- str2, str1, 9\n", str2);
+  printf("c   : %s -- str4, str3, 9\n", str4);
+  str2 = strdup("TestDuMemmoveMdr");
+  str4 = strdup("TestDuMemmoveMdr");
+  str2 = my_memmove(str2, &str2[4], 8);
+  str4 = memmove(str4, &str4[4], 8);
+  puts("-");
+  printf("asm : %s -- str2, &str2[4], 8\n", str2);
+  printf("c   : %s -- str2, &str2[4], 8\n", str4);
+}
+
 int	main()
 {
   test_strlen();
@@ -214,6 +267,8 @@ int	main()
   test_strcmp();
   test_strchr();
   test_memset();
+  test_memcpy();
+  test_memmove();
   test_strstr();
   test_rindex();
   return (0);

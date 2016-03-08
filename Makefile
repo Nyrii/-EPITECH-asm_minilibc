@@ -5,18 +5,20 @@
 ## Login   <noboud_n@epitech.net>
 ##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Tue Mar  8 18:10:33 2016 Nyrandone Noboud-Inpeng
+## Last update Tue Mar  8 20:08:15 2016 Nyrandone Noboud-Inpeng
 ##
 
 SRC	= strlen.s 	\
 	  strncmp.s	\
 	  strcmp.s	\
 	  memset.s	\
+	  memcpy.s	\
+	  memmove.s	\
 	  strchr.s	\
 	  strstr.s	\
 	  rindex.s
 
-CSRC	= main.c	\
+CSRC	= main.c
 
 OBJ	= $(addprefix $(OBJDIR), $(SRC:.s=.o))
 COBJ	= $(addprefix $(COBJDIR), $(CSRC:.c=.o))
