@@ -5,12 +5,13 @@
 ## Login   <noboud_n@epitech.net>
 ##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Tue Mar  8 19:48:43 2016 guillaume wilmot
+## Last update Tue Mar  8 21:22:17 2016 guillaume wilmot
 ##
 
 SRC	= strlen.s 	\
 	  strncmp.s	\
 	  strcmp.s	\
+	  strcasecmp.s	\
 	  memset.s	\
 	  memcpy.s	\
 	  memmove.s	\

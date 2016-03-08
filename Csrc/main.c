@@ -5,7 +5,7 @@
 ** Login   <noboud_n@epitech.net>
 **
 ** Started on  Sun Mar  6 14:32:53 2016 Nyrandone Noboud-Inpeng
-** Last update Tue Mar  8 19:49:00 2016 guillaume wilmot
+** Last update Tue Mar  8 21:26:58 2016 guillaume wilmot
 */
 
 #include <stdio.h>
@@ -19,6 +19,7 @@ extern void	*my_memcpy(void *, void *, size_t);
 extern size_t	my_strlen(char *);
 extern int	my_strncmp(char *, char*, int);
 extern int	my_strcmp(char *, char*);
+extern int	my_strcasecmp(char *, char*);
 extern char	*my_strchr(char *, char);
 extern char	*my_strstr(char *, char *);
 
@@ -94,11 +95,45 @@ void	test_strlen()
   printf("c   %zu -- Matuidi Charo\n", strlen("Matuidi Charo"));
 }
 
+void	test_strcasecmp()
+{
+  printf("\n%s___Testing strcasecmp___%s\n\n", RED, END);
+  printf("asm %d -- CATR PRET\n", my_strcasecmp("CATR", "PRET"));
+  printf("c   %d -- CATR PRET\n", strcasecmp("CATR", "PRET"));
+  puts("-");
+  printf("asm %d -- CatR CATR\n", my_strcasecmp("CatR", "CATR"));
+  printf("c   %d -- CatR CATR\n", strcasecmp("CatR", "CATR"));
+  puts("-");
+  printf("asm %d -- CATR PRET\n", my_strcasecmp("CATR", "PRET"));
+  printf("c   %d -- CATR PRET\n", strcasecmp("CATR", "PRET"));
+  puts("-");
+  printf("asm %d Caza caaa\n", my_strcasecmp("Caza", "caaa"));
+  printf("c   %d Caza caaa\n", strcasecmp("Caza", "caaa"));
+  puts("-");
+  printf("asm %d Colo Colo\n", my_strcasecmp("Colo", "Colo"));
+  printf("c   %d Colo Colo\n", strcasecmp("Colo", "Colo"));
+  puts("-");
+  printf("asm %d -- PILD Caso\n", my_strcasecmp("PILD", "Cado"));
+  printf("c   %d -- PILD Caso\n", strcasecmp("PILD", "Cado"));
+  puts("-");
+  printf("asm %d -- \"\" \"\"\n", my_strcasecmp("", ""));
+  printf("c   %d -- \"\" \"\"\n", strcasecmp("", ""));
+  puts("-");
+  printf("asm %d -- a z\n", my_strcasecmp("a", "z"));
+  printf("c   %d -- a z\n", strcasecmp("a", "z"));
+  puts("-");
+  printf("asm %d -- Zab zeb\n", my_strcasecmp("Zab", "zeb"));
+  printf("c   %d -- Zab zeb\n", strcasecmp("Zab", "zeb"));
+}
+
 void	test_strncmp()
 {
   printf("\n%s___Testing strncmp___%s\n\n", RED, END);
   printf("asm %d -- CATR PRET 4\n", my_strncmp("CATR", "PRET", 4));
   printf("c   %d -- CATR PRET 4\n", strncmp("CATR", "PRET", 4));
+  puts("-");
+  printf("asm %d -- CATR PRET 6\n", my_strncmp("CATR", "CATR", 6));
+  printf("c   %d -- CATR PRET 6\n", strncmp("CATR", "CATR", 6));
   puts("-");
   printf("asm %d -- CATR PRET 1\n", my_strncmp("CATR", "PRET", 1));
   printf("c   %d -- CATR PRET 1\n", strncmp("CATR", "PRET", 1));
@@ -235,6 +270,7 @@ int	main()
   test_strlen();
   test_strncmp();
   test_strcmp();
+  test_strcasecmp();
   test_strchr();
   test_memset();
   test_memcpy();
