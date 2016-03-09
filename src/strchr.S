@@ -1,14 +1,20 @@
 [BITS 64]
-	global strchr:function
+	global my_strchr:function
 	section .text
 
 null:
 	mov rax, 0
 	ret
 
+check_null:
+	cmp rsi, 0
+	jnz null
+	mov rax, rdi
+	ret
+	
 end:
-	cmp rcx, 0
-	jz null
+	cmp al, 0
+	jz check_null
 	mov rax, rdi	 	; give to the return value the address of the char (rdi)
 	ret
 
@@ -21,12 +27,13 @@ loop:
 	cmp rdx, rsi		; check if the character of the first argument == the second argument
 	je end			; if true, then end
 
-	inc rcx			; increment the address of the char ptr
+	inc rdi			; increment the address of the char ptr
 	inc rdx
+	inc rcx
 
 	jmp loop		; loop again
 
-strchr:
+my_strchr:
 	xor rax, rax		; return value = 0
 	xor rcx, rcx
 	jmp loop		; loop
