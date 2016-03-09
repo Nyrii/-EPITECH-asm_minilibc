@@ -5,7 +5,7 @@
 ## Login   <wilmot_g@epitech.net>
 ##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Tue Mar  8 21:55:07 2016 Nyrandone Noboud-Inpeng
+## Last update Wed Mar  9 10:33:56 2016 Nyrandone Noboud-Inpeng
 ##
 
 SRC	= strlen.S 	\

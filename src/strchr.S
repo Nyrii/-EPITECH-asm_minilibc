@@ -2,7 +2,13 @@
 	global strchr:function
 	section .text
 
+null:
+	mov rax, 0
+	ret
+
 end:
+	cmp rcx, 0
+	jz null
 	mov rax, rdi	 	; give to the return value the address of the char (rdi)
 	ret
 
@@ -15,10 +21,12 @@ loop:
 	cmp rdx, rsi		; check if the character of the first argument == the second argument
 	je end			; if true, then end
 
-	inc rdi			; increment the address of the char ptr
+	inc rcx			; increment the address of the char ptr
+	inc rdx
 
 	jmp loop		; loop again
 
 strchr:
 	xor rax, rax		; return value = 0
+	xor rcx, rcx
 	jmp loop		; loop

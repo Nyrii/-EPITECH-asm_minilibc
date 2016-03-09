@@ -17,7 +17,7 @@ isend:
 	mov rax, 0
 	ret
 
-my_strcasecmp:
+strcasecmp:
 	xor rcx, rcx			; i = 0
 	mov rdx, rdi			; save str1
 	jmp check

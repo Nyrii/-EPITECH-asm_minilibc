@@ -5,7 +5,7 @@
 ** Login   <noboud_n@epitech.net>
 **
 ** Started on  Sun Mar  6 14:32:53 2016 Nyrandone Noboud-Inpeng
-** Last update Tue Mar  8 22:18:59 2016 guillaume wilmot
+** Last update Wed Mar  9 11:30:23 2016 Nyrandone Noboud-Inpeng
 */
 
 #include <stdio.h>
@@ -194,6 +194,9 @@ void	test_strchr()
   puts("-");
   printf("asm : %s -- ABC C\n", my_strchr("ABC", 'C'));
   printf("c   : %s -- ABC C\n", strchr("ABC", 'C'));
+  puts("-");
+  printf("asm : %s -- ABC C\n", my_strchr("ABX", 'C'));
+  printf("c   : POINTEUR NULL -- ABX C\n");
 }
 
 void	test_strlen()
