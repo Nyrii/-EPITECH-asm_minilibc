@@ -33,7 +33,7 @@ loop:
 
 	jmp loop		; loop again
 
-my_strchr:
+strchr:
 	xor rax, rax		; return value = 0
 	xor rcx, rcx
 	jmp loop		; loop
