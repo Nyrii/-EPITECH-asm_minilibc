@@ -6,6 +6,10 @@ end:
 	mov rax, rdx		; return value = saved value
 	ret
 
+instant_end:
+	mov rax, 0
+	ret
+
 store_addr:
 	xor rdx, rdx		; initialize rdx at 0
 	mov rdx, rdi		; put the address of rdi in rdx in order to save the occurence
@@ -32,5 +36,8 @@ rindex:
 	xor cl, cl
 	xor rax, rax
 	xor rdx, rdx
+
+	cmp rdi, 0
+	jz instant_end
 
 	jmp loop

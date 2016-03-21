@@ -18,6 +18,10 @@ end:
 	mov rax, rdi	 	; give to the return value the address of the char (rdi)
 	ret
 
+instant_end:
+	mov rax, 0
+	ret
+
 loop:
 	mov al, byte[rdi]	; attribute the char of char * (rdi) to a 8-bit register
 	movsx rdx, al		; attribute the value of 8 bit register to a new bigger (64 bits) register (increase size)
@@ -36,4 +40,6 @@ loop:
 strchr:
 	xor rax, rax		; return value = 0
 	xor rcx, rcx
+	cmp rdi, 0
+	jz instant_end
 	jmp loop		; loop

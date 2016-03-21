@@ -2,6 +2,10 @@
 	global strpbrk:function
 	section .text
 
+instant_end:
+	mov rax, 0
+	ret
+
 null:
 	mov rax, 0
 	ret
@@ -47,4 +51,10 @@ strpbrk:
 	xor r9, r9
 	xor bl, bl
 	xor dl, dl
+
+	cmp rdi, 0
+	jz instant_end
+	cmp rsi, 0
+	jz instant_end
+	
 	jmp first_loop
