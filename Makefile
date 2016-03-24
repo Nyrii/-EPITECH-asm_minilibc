@@ -5,7 +5,7 @@
 ## Login   <wilmot_g@epitech.net>
 ##
 ## Started on  Sat Mar  5 19:12:10 2016 Nyrandone Noboud-Inpeng
-## Last update Wed Mar  9 10:33:56 2016 Nyrandone Noboud-Inpeng
+## Last update Thu Mar 24 14:18:16 2016 guillaume wilmot
 ##
 
 SRC	= strlen.S 	\
@@ -15,6 +15,8 @@ SRC	= strlen.S 	\
 	  memset.S	\
 	  memcpy.S	\
 	  memmove.S	\
+	  putchar.S	\
+	  putstr.S	\
 	  strchr.S	\
 	  strstr.S	\
 	  rindex.S	\
