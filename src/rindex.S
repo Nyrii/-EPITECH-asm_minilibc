@@ -2,7 +2,22 @@
 	global rindex:function
 	section .text
 
+eos:
+	mov rax, rdi
+	ret
+
+return_eos:
+	cmp bl, 0
+	jz eos
+	mov bl, byte[rdi]
+	cmp bl, 0
+	jz eos
+	inc rdi
+	jmp return_eos
+
 end:
+	cmp cl, 0
+	jz return_eos
 	mov rax, rdx		; return value = saved value
 	ret
 

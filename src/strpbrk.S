@@ -6,15 +6,11 @@ instant_end:
 	mov rax, 0
 	ret
 
-null:
-	mov rax, 0
-	ret
-
 end:
 	cmp byte[rsi], 0	; if the char's address of rsi == '\0'
-	jz null			; leave with ptr = NULL
+	jz instant_end		; leave with ptr = NULL
 	cmp rcx, 0		; else if counter == 0
-	jz null			; leave with ptr
+	jz instant_end		; leave with ptr
 	mov rax, rdi		; else, initialize rax with the address of rdi
 	ret
 
