@@ -12,5 +12,7 @@ putchar:
 	mov rdx, 1
 	call write wrt ..plt
 
-	leave
+	mov rsp, rbp
+	pop rbp
+
 	ret

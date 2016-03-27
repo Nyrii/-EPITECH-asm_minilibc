@@ -38,7 +38,7 @@ first_loop:
 	xor bl, bl
 
 	cmp dl, 0		; if dl == '\0'
-	jz end			; then end
+	jz instant_end		; then end
 	inc rcx
 	jmp check_count		; else loop with the second argument
 
